@@ -1,0 +1,74 @@
+/* Reset Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+fieldset {
+    border-left: 0;
+    border-right: 0;
+}
+
+/* System Font Stack */
+body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    min-height: 100vh;
+}
+
+form {
+    padding: 2rem;
+    background-color: #eaeaf0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+/* Book Container */
+.book-container > * {
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid black;
+}
+
+.sample-book > * {
+    padding-top: 1rem;
+}
