@@ -6,6 +6,10 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const read = document.querySelector('#read');
+const bookContainerList = bookContainer.children;
+const fillerBookCount = 5;
+let readBtn;
+let removeBtn;
 
 const myLibrary = [];
 
@@ -24,8 +28,58 @@ function addBookToLibrary(title, author, pages, isRead) {
 function displayBooks() {
     // Go to last item of library array
     let book = myLibrary.at(-1);
-    // Add new element to book-container with innerhtml
+
+    // Create book div
+    let bookDiv = document.createElement('div');
+    bookDiv.className = 'book';
+    bookDiv.setAttribute('data-index', `${myLibrary.length - 1}`);
+
+    // Create book info
+    let newTitle = document.createElement('p');
+    let newAuthor = document.createElement('p');
+    let newPages = document.createElement('p');
+    readBtn = document.createElement('button');
+    removeBtn = document.createElement('button');
     
+    newTitle.textContent = book.title;
+    newAuthor.textContent = book.author;
+    newPages.textContent = book.pages;
+    readBtn.textContent = 'Read yet?';
+    removeBtn.textContent = 'Remove book';
+
+    readBtn.className = 'read-yet';
+    readBtn.setAttribute('type', 'button');
+    removeBtn.className = 'remove-book';
+    removeBtn.setAttribute('type', 'button');
+
+    // Append info to book div
+    bookDiv.appendChild(newTitle);
+    bookDiv.appendChild(newAuthor);
+    bookDiv.appendChild(newPages);
+    bookDiv.appendChild(readBtn);
+    bookDiv.appendChild(removeBtn);
+
+    // Append book div to bookContainer
+    bookContainer.appendChild(bookDiv);
+
+    readBtn.addEventListener('click', (e) => {
+
+    })
+
+    removeBtn.addEventListener('click', () => {
+        bookDiv.remove();
+        removeBook(bookDiv.dataset.index);
+    })
+}
+
+function removeBook(bookIndex) {
+    // Remove book from library
+    myLibrary.splice(bookIndex, 1);
+    // Update the rest of library with new index
+    for (let i = Number(fillerBookCount) + Number(bookIndex); 
+            i < bookContainerList.length; i++) {
+        bookContainerList[i].dataset.index = i - fillerBookCount;
+    }
 }
 
 newBookBtn.addEventListener('click', (e) => {
@@ -43,3 +97,4 @@ newBookForm.addEventListener('submit', (e) => {
 
     newBookForm.reset(); 
 })
+
