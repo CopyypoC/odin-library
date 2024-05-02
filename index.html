@@ -9,163 +9,67 @@
 </head>
 <body>
     <div class="container">
-        <form action="" method="post">
-            <div class="form-item title-container">
-                <label for="">Title</label>
-                <input type="text">
-            </div>
-            <div class="form-item author-container">
-                <label for="">Author</label>
-                <input type="text">
-            </div>
-            <div class="form-item pages-container">
-                <label for="">Pages</label>
-                <input type="number">
-            </div>
-            <fieldset class="form-item read-yet-container">
-                <legend>Read yet?</legend>
-                <label for="read">Read</label>
-                <input id="read" type="radio" name="read-yet">
-                <label for="not-read">Not read</label>
-                <input id="not-read" type="radio" name="read-yet">
-            </fieldset>
-            <button class="form-item new-book-btn" type="submit">+ New Book</button>
-            <button class="form-item reset-btn" type="reset">Reset</button>
-        </form>
+        <div class="new-book-container">
+            <button class="new-book-btn" type="button">+ New Book</button>
+        </div>
         <div class="book-container">
-            <div class="sample-book">
+            <div class="book">
                 <p>Title</p>
                 <p>Author</p>
                 <p>Pages</p>
                 <p>Read yet?</p>
             </div>
-            <div class="sample-book">
+            <div class="book">
                 <p>Title</p>
                 <p>Author</p>
                 <p>Pages</p>
                 <p>Read yet?</p>
             </div>
-            <div class="sample-book">
+            <div class="book">
                 <p>Title</p>
                 <p>Author</p>
                 <p>Pages</p>
                 <p>Read yet?</p>
             </div>
-            <div class="sample-book">
+            <div class="book">
                 <p>Title</p>
                 <p>Author</p>
                 <p>Pages</p>
                 <p>Read yet?</p>
             </div>
-            <div class="sample-book">
+            <div class="book">
                 <p>Title</p>
                 <p>Author</p>
                 <p>Pages</p>
                 <p>Read yet?</p>
             </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
-            <div class="sample-book">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Read yet?</p>
-            </div>
+
         </div>
     </div>
+    <dialog class="modal">
+        <form class="new-book-form" action="" method="post">
+            <div class="form-item title-container">
+                <label for="title">Title</label>
+                <input id="title" type="text" name="title" required>
+            </div>
+            <div class="form-item author-container">
+                <label for="author">Author</label>
+                <input id="author" type="text" name="author" required>
+            </div>
+            <div class="form-item pages-container">
+                <label for="pages">Pages</label>
+                <input id="pages" type="number" name="pages" required>
+            </div>
+            <fieldset class="form-item is-read-container">
+                <legend>Read yet?</legend>
+                <label for="read">Read</label>
+                <input id="read" type="radio" name="is-read" value="read" checked>
+                <label for="not-read">Not read</label>
+                <input id="not-read" type="radio" name="is-read" value="not-read">
+            </fieldset>
+            <button class="form-item submit-btn" type="submit">Submit</button>
+            <button class="form-item cancel-btn" type="reset">Cancel</button>
+        </form>
+    </dialog>
 </body>
 </html>

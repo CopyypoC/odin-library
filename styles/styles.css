@@ -43,13 +43,17 @@ body {
 /* Layout */
 .container {
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-rows: 1fr 9fr;
     min-height: 100vh;
 }
 
-form {
-    padding: 2rem;
-    background-color: #eaeaf0;
+.new-book-container {
+    display: grid;
+    place-items: center;
+}
+
+.new-book-form {
+    padding: 4rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -60,6 +64,22 @@ form {
     flex-wrap: wrap;
     padding: 2rem;
     gap: 1rem;
+    align-content: flex-start;
+}
+
+/* Modal */
+.modal {
+    border: 2px solid black;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+}
+
+.form-item {
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 /* Book Container */
@@ -67,8 +87,10 @@ form {
     border-radius: 10px;
     padding: 2rem;
     border: 1px solid black;
+    min-width: 200px;
+    height: max-content;
 }
 
-.sample-book > * {
+.book p:nth-child(n + 2) {
     padding-top: 1rem;
 }
