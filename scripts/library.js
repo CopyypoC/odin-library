@@ -20,6 +20,10 @@ function Book(title, author, pages, isRead) {
     this.isRead = isRead
 }
 
+Book.prototype.changeReadStatus = function () {
+    this.isRead = !this.isRead;
+}
+
 function addBookToLibrary(title, author, pages, isRead) {
     let book = new Book(title, author, pages, isRead);
     myLibrary.push(book);
@@ -38,6 +42,7 @@ function displayBooks() {
     let newTitle = document.createElement('p');
     let newAuthor = document.createElement('p');
     let newPages = document.createElement('p');
+    let readStatus = document.createElement('p');
     readBtn = document.createElement('button');
     removeBtn = document.createElement('button');
     
@@ -46,6 +51,11 @@ function displayBooks() {
     newPages.textContent = book.pages;
     readBtn.textContent = 'Read yet?';
     removeBtn.textContent = 'Remove book';
+    if (book.isRead) {
+        readStatus.textContent = 'Read';
+    } else {
+        readStatus.textContent = 'Not Read';
+    }
 
     readBtn.className = 'read-yet';
     readBtn.setAttribute('type', 'button');
@@ -56,6 +66,7 @@ function displayBooks() {
     bookDiv.appendChild(newTitle);
     bookDiv.appendChild(newAuthor);
     bookDiv.appendChild(newPages);
+    bookDiv.appendChild(readStatus);
     bookDiv.appendChild(readBtn);
     bookDiv.appendChild(removeBtn);
 
@@ -63,7 +74,14 @@ function displayBooks() {
     bookContainer.appendChild(bookDiv);
 
     readBtn.addEventListener('click', (e) => {
-
+        switch (readStatus.textContent) {
+            case 'Read':
+                readStatus.textContent = 'Not Read';
+                break;
+            case 'Not Read':
+                readStatus.textContent = 'Read';
+        }
+        myLibrary[bookDiv.dataset.index].changeReadStatus();
     })
 
     removeBtn.addEventListener('click', () => {
