@@ -10,19 +10,21 @@
 <body>
     <div class="container">
         <form action="" method="post">
+            <label for="">Title</label>
+            <input type="text">
+            <label for="">Author</label>
+            <input type="text">
+            <label for="">Pages</label>
+            <input type="number">
             <fieldset>
-                <legend>Add a book</legend>
-                <label for="">Title</label>
-                <input type="text">
-                <label for="">Author</label>
-                <input type="text">
-                <label for="">Pages</label>
-                <input type="text">
-                <label for="">Read yet?</label>
-                <input type="text">
-                <button>Cancel</button>
-                <button>+ New Book</button>
+                <legend>Read yet?</legend>
+                <label for="read">Read</label>
+                <input id="read" type="radio" name="read-yet">
+                <label for="not-read">Not read</label>
+                <input id="not-read" type="radio" name="read-yet">
             </fieldset>
+            <button type="reset">Cancel</button>
+            <button type="submit">+ New Book</button>
         </form>
         <div class="book-container">
             <div class="sample-book">
