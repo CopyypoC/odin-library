@@ -7,21 +7,23 @@ const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const read = document.querySelector('#read');
 const bookContainerList = bookContainer.children;
+// Number of placeholder books to populate library
 const fillerBookCount = 0;
 let readBtn;
 let removeBtn;
 
 const myLibrary = [];
 
-function Book(title, author, pages, isRead) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.isRead = isRead
-}
-
-Book.prototype.changeReadStatus = function () {
-    this.isRead = !this.isRead;
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
+    changeReadStatus()  {
+        this.isRead = !this.isRead;
+    }
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
