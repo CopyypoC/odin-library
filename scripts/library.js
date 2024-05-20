@@ -7,7 +7,7 @@ const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const read = document.querySelector('#read');
 const bookContainerList = bookContainer.children;
-const fillerBookCount = 5;
+const fillerBookCount = 0;
 let readBtn;
 let removeBtn;
 
