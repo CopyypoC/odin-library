@@ -103,6 +103,7 @@ function removeBook(bookIndex) {
 }
 
 newBookBtn.addEventListener('click', (e) => {
+    newBookForm.reset();
     modal.showModal();
 })
 
@@ -112,9 +113,57 @@ newBookForm.addEventListener('reset', () => {
 
 newBookForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    addBookToLibrary(title.value, author.value, pages.value, read.checked);
-    displayBooks();
+    validateTitle();
+    validateAuthor();
+    validatePages();
 
-    newBookForm.reset(); 
+    addBookToLibrary(title.value, author.value, pages.value, read.checked);
+    displayBooks(); 
 })
 
+title.addEventListener('input', () => {
+    validateTitle();
+})
+
+author.addEventListener('input', () => {
+    validateAuthor();
+})
+
+pages.addEventListener('input', () => {
+    validatePages();
+})
+
+function validateTitle() {
+    if (title.validity.valueMissing) {
+        title.style.border = '2px solid red';
+        title.setCustomValidity('Please enter a title.');
+        title.reportValidity();
+    } else {
+       title.setCustomValidity('');
+       title.style.border = '';
+    }
+}
+
+function validateAuthor() {
+    if (author.validity.valueMissing) {
+        author.style.border = '2px solid red';
+        author.setCustomValidity('Please enter an author.');
+        author.reportValidity();
+    } else {
+       author.setCustomValidity('');
+       author.style.border = '';
+    }
+}
+
+function validatePages() {
+    if (pages.validity.valueMissing) {
+        pages.style.border = '2px solid red';
+        pages.setCustomValidity('Please enter page amount.');
+        pages.reportValidity();
+    } else {
+       pages.setCustomValidity('');
+       pages.style.border = '';
+    }
+}
+
+// Simply force requirement and custom message each input
